@@ -1,16 +1,22 @@
-package com.ammar.springit.model;
+package com.ammar.springit.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class Comment {
+public class Vote {
     private Long id;
-    private String body;
+    private int vote;
 
-    //tie back to Link
-    public Comment(){}
+    //user/
+    //link
 
+
+    public Vote(){}
+    @Id
+    @GeneratedValue
     public Long getId() {
         return id;
     }
@@ -19,19 +25,19 @@ public class Comment {
         this.id = id;
     }
 
-    public String getBody() {
-        return body;
+    public int getVote() {
+        return vote;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setVote(int vote) {
+        this.vote = vote;
     }
 
     @Override
     public String toString() {
-        return "Comment{" +
+        return "Vote{" +
                 "id=" + id +
-                ", body='" + body + '\'' +
+                ", vote=" + vote +
                 '}';
     }
 
@@ -39,12 +45,12 @@ public class Comment {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Comment comment = (Comment) o;
-        return Objects.equals(id, comment.id) && Objects.equals(body, comment.body);
+        Vote vote1 = (Vote) o;
+        return vote == vote1.vote && Objects.equals(id, vote1.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, body);
+        return Objects.hash(id, vote);
     }
 }

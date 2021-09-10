@@ -1,6 +1,8 @@
-package com.ammar.springit.model;
+package com.ammar.springit.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
@@ -13,7 +15,8 @@ public class Link {
     //JPA need a no-arg constructor
 
     public Link() {}
-
+    @Id
+    @GeneratedValue
     public Long getId() {
         return id;
     }

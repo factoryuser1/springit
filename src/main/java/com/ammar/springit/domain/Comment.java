@@ -3,10 +3,7 @@ package com.ammar.springit.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -15,7 +12,10 @@ public class Comment {
     @Id
     @GeneratedValue
     private Long id;
+
     private String body;
 
     //tie back to Link
+    @ManyToOne
+    private Link link;
 }
